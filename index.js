@@ -13,7 +13,7 @@ app.use(express.json())
 
 app.get('/', (req,res) => (
 
-    res.json({ message: 'Hello express'})
+    res.status(200).json({ message: 'Hello express'})
 ))
 
 app.listen
