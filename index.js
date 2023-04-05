@@ -1,10 +1,7 @@
 
 const express = require('express')
-const app = express()
-
 const mongoose = require('mongoose')
-
-
+const app = express()
 
 
 app.use(
@@ -14,6 +11,10 @@ app.use(
 )
 
 app.use(express.json())
+
+const storeRoutes = require('./routes/storeRoutes')
+
+app.use('/store', storeRoutes)
 
 app.get('/', (req,res) => (
 
