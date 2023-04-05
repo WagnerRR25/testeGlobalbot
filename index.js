@@ -1,5 +1,9 @@
+// config inicial
 
+require('dotenv').config()
 const express = require('express')
+
+// depois do db
 const mongoose = require('mongoose')
 const app = express()
 
@@ -21,8 +25,8 @@ app.get('/', (req,res) => (
     res.status(200).json({ message: 'Hello express!'})
 ))
 
-const DB_USER = 'WagnerRR25'
-const DB_PASSWORD = encodeURIComponent('QaMMRJ3LDt3Np2qA')
+const DB_USER = process.env.DB_USER
+const DB_PASSWORD = encodeURIComponent(process.env.DB_PASSWORD)
 
 mongoose
 .connect(
