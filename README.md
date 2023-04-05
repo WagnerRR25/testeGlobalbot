@@ -46,4 +46,6 @@ Postman:
 MongoDB:
 ![Imagem MongoDB](https://drive.google.com/file/d/1jFv8WbXYtwcYNU3_oI5W5QXTQMRIZgVf/view?usp=share_link)
 
-Link de apoio NPM (https://www.npmjs.com/package/node-viacep)
+Links de apoio NPM (https://www.npmjs.com/package/node-viacep)
+Postman (https://www.postman.com/api-documentation-tool/)
+MongoDB(https://cloud.mongodb.com/v2/642cb957f360104505966b31#/metrics/replicaSet/642cbaa2c84bb41daf4c1f94/explorer/test/stores/find)
