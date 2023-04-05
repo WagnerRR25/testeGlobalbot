@@ -1,12 +1,13 @@
 
-// rotas
+const ViaCep = require('node-viacep').default;
+
 const router = require('express').Router()
 
 const Store = require('../models/Store')
 
 router.post('/', async (req, res) => {
 
-  const {nameStore, responsible, completeAddress, phoneNumber} = req.body
+  const {nameStore, responsible, address, phoneNumber} = req.body
 
   if (!nameStore) {
       res.status(422).json({ error: 'O nome da loja é obrigatório!'})
@@ -16,7 +17,7 @@ router.post('/', async (req, res) => {
   const store = {
       nameStore,
       responsible,
-      completeAddress,
+      address,
       phoneNumber
   }
 
@@ -30,6 +31,30 @@ router.post('/', async (req, res) => {
       res.status(500).json({ error: error})
   }
 })
+
+router.post('/', async (req, res) => {
+
+    const {ViaCep} = req.body
+  
+    if (!ViaCep) {
+        res.status(422).json({ error: 'Cep campo obrigatório!'})
+        return
+    }
+  
+    const cep = {
+        cep,
+    }
+  
+    try{
+  
+        await viaCep.create(cep)
+  
+        res.status(201).json({message: 'Cep criado com sucesso!'})
+  
+    } catch (error) {
+        res.status(500).json({ error: error})
+    }
+  })
 
 router.get('/', async (req, res) => {
     try {
@@ -64,12 +89,12 @@ router.get('/:id', async (req, res) => {
 router.patch('/:id', async (req, res) => {
     const id = req.params.id
   
-    const { nameStore, responsible, completeAddress, phoneNumber } = req.body
+    const { nameStore, responsible, address, phoneNumber } = req.body
   
     const store = {
         nameStore,
         responsible,
-        completeAddress,
+        address,
         phoneNumber,
     }
   

@@ -1,12 +1,10 @@
-// config inicial
+
 
 require('dotenv').config()
 const express = require('express')
 
-// depois do db
 const mongoose = require('mongoose')
 const app = express()
-
 
 app.use(
     express.urlencoded({
